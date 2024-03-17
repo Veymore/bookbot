@@ -1,3 +1,5 @@
+#test merging
+
 '''
 Action:     Reads a file at the specified path and returns its file content as String
 In:         path -> String
