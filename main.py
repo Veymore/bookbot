@@ -1,6 +1,6 @@
-from stats import count_words, count_letter
 from report import print_report
 from filesystem_interactions import read_file_to_String
+import sys
 
 
 def main():
@@ -9,10 +9,16 @@ def main():
     In:         -
     Out:        -
     """
-    repository_path = "/Users/julian/Desktop/repos/boot.dev/bookbot/"
-    path_to_file = "books/frankenstein.txt"
-    book_path = repository_path + path_to_file
-    book_text = read_file_to_String(book_path)
+    if len(sys.argv) > 1:
+        path_to_file = sys.argv[1]
+    else:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    try:
+        book_text = read_file_to_String(path_to_file)
+    except FileNotFoundError:
+        print(f"File not found at {path_to_file}")
+        sys.exit(1)
     # count_letter(book_text)
     print_report(book_text, path_to_file)
 

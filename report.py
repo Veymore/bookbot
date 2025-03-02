@@ -32,7 +32,7 @@ def print_report(text, book_path="undefined"):
     for char in character_sorted_dict:
         # Filter characters that are not in the alphabet
         if char.isalpha():
-            full_report += f"The '{char}' character was found {character_sorted_dict[char]} times\n"
+            full_report += f"{char}: {character_sorted_dict[char]}\n"
     full_report += report_end
     # Prints a report of character occurences in human readable format.
     print(full_report)
